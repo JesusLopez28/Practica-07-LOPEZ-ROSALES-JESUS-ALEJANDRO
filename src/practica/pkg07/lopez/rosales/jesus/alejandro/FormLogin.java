@@ -6,8 +6,26 @@ package practica.pkg07.lopez.rosales.jesus.alejandro;
 
 public class FormLogin extends javax.swing.JFrame {
 
+    private final int tamaño = 20;
+    private final int contador;
+
+    Usuario usuarios[] = new Usuario[tamaño];
+
     public FormLogin() {
         initComponents();
+        initComponents();
+        usuarios[0] = new Usuario("jesus", "3452");
+        usuarios[1] = new Usuario("ivan", "2804");
+        usuarios[2] = new Usuario("calos", "2010");
+        usuarios[3] = new Usuario("andrea", "2012");
+        usuarios[4] = new Usuario("ana", "2002");
+        usuarios[5] = new Usuario("alex", "1999");
+
+        for (int i = 6; i < tamaño; i++) {
+            usuarios[i] = new Usuario();
+        }
+
+        contador = 6;
     }
 
     @SuppressWarnings("unchecked")
