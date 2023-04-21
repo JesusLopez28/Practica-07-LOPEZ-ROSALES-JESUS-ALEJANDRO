@@ -4,6 +4,8 @@
  */
 package practica.pkg07.lopez.rosales.jesus.alejandro;
 
+import java.awt.Color;
+
 public class FormLogin extends javax.swing.JFrame {
 
     private final int tamaño = 20;
@@ -26,27 +28,139 @@ public class FormLogin extends javax.swing.JFrame {
         }
 
         contador = 6;
+        lbMensaje.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lbTitulo = new javax.swing.JLabel();
+        txtUsuario = new javax.swing.JTextField();
+        txtContraseña = new javax.swing.JPasswordField();
+        btnIngresar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
+        lbUsuario = new javax.swing.JLabel();
+        lbContraseña = new javax.swing.JLabel();
+        lbMensaje = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lbTitulo.setFont(new java.awt.Font("Nirmala UI", 1, 18)); // NOI18N
+        lbTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbTitulo.setText("LOGIN DE USUARIOS");
+
+        txtUsuario.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+
+        txtContraseña.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+
+        btnIngresar.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        btnIngresar.setText("Ingresar");
+        btnIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngresarActionPerformed(evt);
+            }
+        });
+
+        btnCancelar.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
+
+        lbUsuario.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        lbUsuario.setText("Usuario:");
+
+        lbContraseña.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        lbContraseña.setText("Contraseña:");
+
+        lbMensaje.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        lbMensaje.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbMensaje.setText("Mensaje");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lbMensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbTitulo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbContraseña)
+                            .addComponent(lbUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtUsuario)
+                            .addComponent(txtContraseña)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbTitulo)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbUsuario))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbContraseña))
+                .addGap(18, 18, 18)
+                .addComponent(lbMensaje)
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnIngresar)
+                    .addComponent(btnCancelar))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+        // TODO add your handling code here:
+        if (!txtUsuario.getText().isEmpty() || !txtContraseña.getText().isEmpty()) {
+            for (int i = 0; i < contador; i++) {
+                String username = usuarios[i].getUsuario();
+                String password = usuarios[i].getContraseña();
+                if (username.equals(txtUsuario.getText()) && password.equals(txtContraseña.getText())) {
+                    lbMensaje.setVisible(true);
+                    lbMensaje.setText("Bien.");
+                    lbMensaje.setForeground(Color.BLUE);
+                    FormMenu menu = new FormMenu();
+                    menu.setVisible(true);
+                    menu.setLocationRelativeTo(null);
+                    this.setVisible(false);
+                    break;
+                } else {
+                    lbMensaje.setVisible(true);
+                    lbMensaje.setText("Usuario y/o contraseña incorrectos.");
+                    lbMensaje.setForeground(Color.RED);
+                    break;
+                }
+            }
+        } else {
+            lbMensaje.setVisible(true);
+            lbMensaje.setText("Alguno de los campos está vacío.");
+            lbMensaje.setForeground(Color.RED);
+        }
+    }//GEN-LAST:event_btnIngresarActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -72,5 +186,13 @@ public class FormLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnIngresar;
+    private javax.swing.JLabel lbContraseña;
+    private javax.swing.JLabel lbMensaje;
+    private javax.swing.JLabel lbTitulo;
+    private javax.swing.JLabel lbUsuario;
+    private javax.swing.JPasswordField txtContraseña;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }
