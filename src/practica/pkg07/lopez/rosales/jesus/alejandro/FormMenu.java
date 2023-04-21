@@ -6,7 +6,7 @@ package practica.pkg07.lopez.rosales.jesus.alejandro;
 
 public class FormMenu extends javax.swing.JFrame {
 
-    public FormMenu() {
+    public FormMenu(String usuario) {
         initComponents();
     }
 
