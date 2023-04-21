@@ -8,6 +8,9 @@ public class Practica07LOPEZROSALESJESUSALEJANDRO {
 
     public static void main(String[] args) {
         // TODO code application logic here
+        FormLogin login = new FormLogin();
+        login.setVisible(true);
+        login.setLocationRelativeTo(null);
     }
 
 }
