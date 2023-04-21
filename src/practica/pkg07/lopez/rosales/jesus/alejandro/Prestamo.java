@@ -4,6 +4,52 @@
  */
 package practica.pkg07.lopez.rosales.jesus.alejandro;
 
+import java.util.Date;
+
 public class Prestamo {
+
+    private Alumno alumno;
+    private Libro libro;
+    private Date fechaPrestamo;
+    private Date fechaDevolucion;
+
+    public Prestamo() {
+        this.alumno = null;
+        this.libro = null;
+        this.fechaPrestamo = null;
+        this.fechaDevolucion = null;
+    }
+
+    public Alumno getAlumno() {
+        return alumno;
+    }
+
+    public void setAlumno(Alumno alumno) {
+        this.alumno = alumno;
+    }
+
+    public Libro getLibro() {
+        return libro;
+    }
+
+    public void setLibro(Libro libro) {
+        this.libro = libro;
+    }
+
+    public Date getFechaPrestamo() {
+        return fechaPrestamo;
+    }
+
+    public void setFechaPrestamo(Date fechaPrestamo) {
+        this.fechaPrestamo = fechaPrestamo;
+    }
+
+    public Date getFechaDevolucion() {
+        return fechaDevolucion;
+    }
+
+    public void setFechaDevolucion(Date fechaDevolucion) {
+        this.fechaDevolucion = fechaDevolucion;
+    }
 
 }

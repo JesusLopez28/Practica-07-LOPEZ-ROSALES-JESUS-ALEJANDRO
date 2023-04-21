@@ -6,4 +6,27 @@ package practica.pkg07.lopez.rosales.jesus.alejandro;
 
 public class Usuario {
 
+    private String usuario;
+    private String contraseña;
+
+    public Usuario() {
+        this.usuario = "";
+        this.contraseña = "";
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
+    }
 }
