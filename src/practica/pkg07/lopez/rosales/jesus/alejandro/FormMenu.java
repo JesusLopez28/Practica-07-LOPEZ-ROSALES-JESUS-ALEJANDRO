@@ -11,14 +11,16 @@ public class FormMenu extends javax.swing.JFrame {
     public String usuario;
 
     PilaAlumnos pilaAlumnos = new PilaAlumnos();
-    PilaAlumnos pilaLibros = new PilaAlumnos();
-    PilaAlumnos pilaPrestamos = new PilaAlumnos();
+    PilaLibros pilaLibros = new PilaLibros();
+    PilaPrestamos pilaPrestamos = new PilaPrestamos();
 
     public FormMenu(String usuario) {
         initComponents();
         this.usuario = usuario;
         txtUsuario.setForeground(Color.BLUE);
         txtUsuario.setText(usuario.toUpperCase());
+        lbMensaje.setVisible(false);
+        lbMensaje.setForeground(Color.RED);
     }
 
     @SuppressWarnings("unchecked")
@@ -28,6 +30,7 @@ public class FormMenu extends javax.swing.JFrame {
         txtUsuario = new javax.swing.JLabel();
         lbUsuario = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
+        lbMensaje = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuAlumnos = new javax.swing.JMenu();
         itemRegistrarAlumnos = new javax.swing.JMenuItem();
@@ -56,6 +59,10 @@ public class FormMenu extends javax.swing.JFrame {
                 btnSalirActionPerformed(evt);
             }
         });
+
+        lbMensaje.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        lbMensaje.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbMensaje.setText("Mensaje");
 
         jMenuBar1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
 
@@ -134,18 +141,19 @@ public class FormMenu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lbUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lbUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbMensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,6 +164,8 @@ public class FormMenu extends javax.swing.JFrame {
                 .addComponent(txtUsuario)
                 .addGap(18, 18, 18)
                 .addComponent(btnSalir)
+                .addGap(18, 18, 18)
+                .addComponent(lbMensaje)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -180,15 +190,21 @@ public class FormMenu extends javax.swing.JFrame {
 
     private void itemMostraAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMostraAlumnosActionPerformed
         // TODO add your handling code here:
-        FormMostrarAlumnos mostrarAlumnos = new FormMostrarAlumnos(this, pilaAlumnos);
-        mostrarAlumnos.setVisible(true);
-        mostrarAlumnos.setLocationRelativeTo(null);
-        this.setVisible(false);
+        if (pilaAlumnos.pila == null) {
+            lbMensaje.setVisible(true);
+            lbMensaje.setText("La pila ALUMNOS está vacía");
+        } else {
+            lbMensaje.setVisible(false);
+            FormMostrarAlumnos mostrarAlumnos = new FormMostrarAlumnos(this, pilaAlumnos);
+            mostrarAlumnos.setVisible(true);
+            mostrarAlumnos.setLocationRelativeTo(null);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_itemMostraAlumnosActionPerformed
 
     private void itemRegistrarLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRegistrarLibrosActionPerformed
         // TODO add your handling code here:
-        FormRegistrarLibros registrarLibros = new FormRegistrarLibros(this, pilaAlumnos);
+        FormRegistrarLibros registrarLibros = new FormRegistrarLibros(this, pilaLibros);
         registrarLibros.setVisible(true);
         registrarLibros.setLocationRelativeTo(null);
         this.setVisible(false);
@@ -196,15 +212,20 @@ public class FormMenu extends javax.swing.JFrame {
 
     private void itemMostraLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMostraLibrosActionPerformed
         // TODO add your handling code here:
-        FormMostrarLibros mostrarLibros = new FormMostrarLibros(this, pilaAlumnos);
-        mostrarLibros.setVisible(true);
-        mostrarLibros.setLocationRelativeTo(null);
-        this.setVisible(false);
+        if (pilaLibros.pila == null) {
+            lbMensaje.setVisible(true);
+            lbMensaje.setText("La pila LIBROS está vacía");
+        } else {
+            FormMostrarLibros mostrarLibros = new FormMostrarLibros(this, pilaLibros);
+            mostrarLibros.setVisible(true);
+            mostrarLibros.setLocationRelativeTo(null);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_itemMostraLibrosActionPerformed
 
     private void itemRegistrarPrestamosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRegistrarPrestamosActionPerformed
         // TODO add your handling code here:
-        FormRegistrarPrestamos registrarPrestamos = new FormRegistrarPrestamos(this, pilaAlumnos);
+        FormRegistrarPrestamos registrarPrestamos = new FormRegistrarPrestamos(this, pilaPrestamos);
         registrarPrestamos.setVisible(true);
         registrarPrestamos.setLocationRelativeTo(null);
         this.setVisible(false);
@@ -212,10 +233,16 @@ public class FormMenu extends javax.swing.JFrame {
 
     private void itemMostraPrestamosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMostraPrestamosActionPerformed
         // TODO add your handling code here:
-        FormMostrarPrestamos mostrarPrestamos = new FormMostrarPrestamos(this, pilaAlumnos);
-        mostrarPrestamos.setVisible(true);
-        mostrarPrestamos.setLocationRelativeTo(null);
-        this.setVisible(false);
+
+        if (pilaPrestamos.pila == null) {
+            lbMensaje.setVisible(true);
+            lbMensaje.setText("La pila PRESTAMOS está vacía");
+        } else {
+            FormMostrarPrestamos mostrarPrestamos = new FormMostrarPrestamos(this, pilaPrestamos);
+            mostrarPrestamos.setVisible(true);
+            mostrarPrestamos.setLocationRelativeTo(null);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_itemMostraPrestamosActionPerformed
 
     public static void main(String args[]) {
@@ -250,6 +277,7 @@ public class FormMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem itemRegistrarLibros;
     private javax.swing.JMenuItem itemRegistrarPrestamos;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JLabel lbMensaje;
     private javax.swing.JLabel lbUsuario;
     private javax.swing.JMenu menuAlumnos;
     private javax.swing.JMenu menuLibros;

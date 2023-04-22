@@ -7,12 +7,12 @@ package practica.pkg07.lopez.rosales.jesus.alejandro;
 public class FormMostrarLibros extends javax.swing.JFrame {
 
     FormMenu principal;
-    PilaAlumnos listaLisbros;
+    PilaLibros listaLibros;
 
-    public FormMostrarLibros(FormMenu menu, PilaAlumnos lista) {
+    public FormMostrarLibros(FormMenu menu, PilaLibros lista) {
         initComponents();
         principal = menu;
-        listaLisbros = lista;
+        listaLibros = lista;
     }
 
     @SuppressWarnings("unchecked")

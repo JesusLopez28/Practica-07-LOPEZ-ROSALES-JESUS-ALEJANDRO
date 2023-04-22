@@ -23,6 +23,7 @@ public class FormMostrarAlumnos extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtResultado = new javax.swing.JTextArea();
         btnRegresar = new javax.swing.JButton();
+        lbTitulo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -38,27 +39,32 @@ public class FormMostrarAlumnos extends javax.swing.JFrame {
             }
         });
 
+        lbTitulo.setFont(new java.awt.Font("Nirmala UI", 1, 18)); // NOI18N
+        lbTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbTitulo.setText("INFORMACIÓN DE USUARIOS:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(132, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(102, 102, 102))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnRegresar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lbTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
+                    .addComponent(btnRegresar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(lbTitulo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnRegresar)
-                .addGap(21, 21, 21))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -66,7 +72,7 @@ public class FormMostrarAlumnos extends javax.swing.JFrame {
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         // TODO add your handling code here:
-        principal.txtUsuario.setText(principal.usuario.toUpperCase());
+        FormMenu.txtUsuario.setText(principal.usuario.toUpperCase());
         principal.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
@@ -97,6 +103,7 @@ public class FormMostrarAlumnos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegresar;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbTitulo;
     private javax.swing.JTextArea txtResultado;
     // End of variables declaration//GEN-END:variables
 }

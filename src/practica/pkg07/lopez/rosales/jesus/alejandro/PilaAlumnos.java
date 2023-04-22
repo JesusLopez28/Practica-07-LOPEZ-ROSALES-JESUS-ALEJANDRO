@@ -1,8 +1,7 @@
 /*
-López Rosales Jesús Alejandro
-22110104       3°O        POE
-*/
-
+ López Rosales Jesús Alejandro
+ 22110104       3°O        POE
+ */
 package practica.pkg07.lopez.rosales.jesus.alejandro;
 
 public class PilaAlumnos {
@@ -28,7 +27,7 @@ public class PilaAlumnos {
         Alumno aux = pila;
         String datos = "";
         if (pila == null) {
-            System.out.println("La pila ALUMNOS está vacía.");
+            datos = "La pila ALUMNOS está vacía.";
         } else {
             while (aux != null) {
                 datos = datos + "DATOS DEL ALUMNO\n";
@@ -47,7 +46,7 @@ public class PilaAlumnos {
         if (pila == null) {
             System.out.println("La pila está vacía.");
         } else {
-            if (aux.getAlumnoSiguiente()== null) {
+            if (aux.getAlumnoSiguiente() == null) {
                 pila = null;
             } else {
                 pila = aux.getAlumnoSiguiente();
