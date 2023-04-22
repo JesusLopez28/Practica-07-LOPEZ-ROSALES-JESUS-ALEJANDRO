@@ -233,7 +233,6 @@ public class FormMenu extends javax.swing.JFrame {
 
     private void itemMostraPrestamosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMostraPrestamosActionPerformed
         // TODO add your handling code here:
-
         if (pilaPrestamos.pila == null) {
             lbMensaje.setVisible(true);
             lbMensaje.setText("La pila PRESTAMOS está vacía");
