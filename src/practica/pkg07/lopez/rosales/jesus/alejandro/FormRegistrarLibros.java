@@ -6,11 +6,13 @@ package practica.pkg07.lopez.rosales.jesus.alejandro;
 
 public class FormRegistrarLibros extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FormRegistrarLibros
-     */
-    public FormRegistrarLibros() {
+    FormMenu principal;
+    Pila listaLibros;
+
+    public FormRegistrarLibros(FormMenu menu, Pila lista) {
         initComponents();
+        principal = menu;
+        listaLibros = lista;
     }
 
     @SuppressWarnings("unchecked")
@@ -53,7 +55,6 @@ public class FormRegistrarLibros extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new FormRegistrarLibros().setVisible(true);
         });
     }
 

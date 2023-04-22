@@ -10,6 +10,10 @@ public class FormMenu extends javax.swing.JFrame {
 
     public String usuario;
 
+    Pila pilaAlumnos = new Pila();
+    Pila pilaLibros = new Pila();
+    Pila pilaPrestamos = new Pila();
+
     public FormMenu(String usuario) {
         initComponents();
         this.usuario = usuario;
@@ -168,32 +172,50 @@ public class FormMenu extends javax.swing.JFrame {
 
     private void itemRegistrarAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRegistrarAlumnosActionPerformed
         // TODO add your handling code here:
-        
+        FormRegistrarAlumnos registrarAlumnos = new FormRegistrarAlumnos(this, pilaAlumnos);
+        registrarAlumnos.setVisible(true);
+        registrarAlumnos.setLocationRelativeTo(null);
+        this.setVisible(false);
     }//GEN-LAST:event_itemRegistrarAlumnosActionPerformed
 
     private void itemMostraAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMostraAlumnosActionPerformed
         // TODO add your handling code here:
-        
+        FormMostrarAlumnos mostrarAlumnos = new FormMostrarAlumnos(this, pilaAlumnos);
+        mostrarAlumnos.setVisible(true);
+        mostrarAlumnos.setLocationRelativeTo(null);
+        this.setVisible(false);
     }//GEN-LAST:event_itemMostraAlumnosActionPerformed
 
     private void itemRegistrarLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRegistrarLibrosActionPerformed
         // TODO add your handling code here:
-        
+        FormRegistrarLibros registrarLibros = new FormRegistrarLibros(this, pilaAlumnos);
+        registrarLibros.setVisible(true);
+        registrarLibros.setLocationRelativeTo(null);
+        this.setVisible(false);
     }//GEN-LAST:event_itemRegistrarLibrosActionPerformed
 
     private void itemMostraLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMostraLibrosActionPerformed
         // TODO add your handling code here:
-        
+        FormMostrarLibros mostrarLibros = new FormMostrarLibros(this, pilaAlumnos);
+        mostrarLibros.setVisible(true);
+        mostrarLibros.setLocationRelativeTo(null);
+        this.setVisible(false);
     }//GEN-LAST:event_itemMostraLibrosActionPerformed
 
     private void itemRegistrarPrestamosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRegistrarPrestamosActionPerformed
         // TODO add your handling code here:
-        
+        FormRegistrarPrestamos registrarPrestamos = new FormRegistrarPrestamos(this, pilaAlumnos);
+        registrarPrestamos.setVisible(true);
+        registrarPrestamos.setLocationRelativeTo(null);
+        this.setVisible(false);
     }//GEN-LAST:event_itemRegistrarPrestamosActionPerformed
 
     private void itemMostraPrestamosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMostraPrestamosActionPerformed
         // TODO add your handling code here:
-        
+        FormMostrarPrestamos mostrarPrestamos = new FormMostrarPrestamos(this, pilaAlumnos);
+        mostrarPrestamos.setVisible(true);
+        mostrarPrestamos.setLocationRelativeTo(null);
+        this.setVisible(false);
     }//GEN-LAST:event_itemMostraPrestamosActionPerformed
 
     public static void main(String args[]) {

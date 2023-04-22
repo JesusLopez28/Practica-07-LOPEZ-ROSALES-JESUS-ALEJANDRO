@@ -6,8 +6,13 @@ package practica.pkg07.lopez.rosales.jesus.alejandro;
 
 public class FormRegistrarAlumnos extends javax.swing.JFrame {
 
-    public FormRegistrarAlumnos() {
+    FormMenu principal;
+    Pila listaAlumnos;
+    
+    public FormRegistrarAlumnos(FormMenu menu, Pila lista) {
         initComponents();
+        principal = menu;
+        listaAlumnos = lista;
     }
 
     @SuppressWarnings("unchecked")
