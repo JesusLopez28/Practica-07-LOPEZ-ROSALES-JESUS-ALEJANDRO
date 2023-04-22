@@ -242,7 +242,7 @@ public class FormRegistrarAlumnos extends javax.swing.JFrame {
             lbMensaje.setVisible(true);
             lbMensaje.setText("El registro debe tener 8 dígitos.");
             lbMensaje.setForeground(Color.RED);
-            return; // exit the method if validation fails
+            return;
         }
         if (comboCarrera.getSelectedItem() != null) {
             carrera = (String) comboCarrera.getSelectedItem();
