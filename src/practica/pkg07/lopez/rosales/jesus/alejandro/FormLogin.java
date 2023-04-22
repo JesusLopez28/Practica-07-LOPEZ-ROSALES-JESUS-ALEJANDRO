@@ -135,6 +135,7 @@ public class FormLogin extends javax.swing.JFrame {
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         // TODO add your handling code here:
         if (!txtUsuario.getText().isEmpty() || !txtContraseña.getText().isEmpty()) {
+            boolean usuarioValidado = false;
             for (int i = 0; i < contador; i++) {
                 String username = usuarios[i].getUsuario();
                 String password = usuarios[i].getContraseña();
@@ -146,13 +147,14 @@ public class FormLogin extends javax.swing.JFrame {
                     menu.setVisible(true);
                     menu.setLocationRelativeTo(null);
                     this.setVisible(false);
-                    break;
-                } else {
-                    lbMensaje.setVisible(true);
-                    lbMensaje.setText("Usuario y/o contraseña incorrectos.");
-                    lbMensaje.setForeground(Color.RED);
+                    usuarioValidado = true;
                     break;
                 }
+            }
+            if (!usuarioValidado) {
+                lbMensaje.setVisible(true);
+                lbMensaje.setText("Usuario y/o contraseña incorrectos.");
+                lbMensaje.setForeground(Color.RED);
             }
         } else {
             lbMensaje.setVisible(true);
