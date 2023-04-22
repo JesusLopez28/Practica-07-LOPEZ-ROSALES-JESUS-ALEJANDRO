@@ -228,7 +228,7 @@ public class FormRegistrarAlumnos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtRegistroKeyTyped
 
-    public void actionPush() {
+    private void actionPush() {
         String nombre, apellido, carrera;
         String registroStr;
         int registro;
@@ -259,7 +259,7 @@ public class FormRegistrarAlumnos extends javax.swing.JFrame {
         }
     }
 
-    public void actionLimpiar() {
+    private void actionLimpiar() {
         txtNombre.setText("");
         txtApellido.setText("");
         txtRegistro.setText("");
