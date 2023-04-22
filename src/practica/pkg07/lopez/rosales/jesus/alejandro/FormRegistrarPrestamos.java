@@ -7,9 +7,9 @@ package practica.pkg07.lopez.rosales.jesus.alejandro;
 public class FormRegistrarPrestamos extends javax.swing.JFrame {
 
     FormMenu principal;
-    Pila listaPrestamos;
+    PilaAlumnos listaPrestamos;
 
-    public FormRegistrarPrestamos(FormMenu menu, Pila lista) {
+    public FormRegistrarPrestamos(FormMenu menu, PilaAlumnos lista) {
         initComponents();
         principal = menu;
         listaPrestamos = lista;

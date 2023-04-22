@@ -12,12 +12,22 @@ public class Prestamo {
     private Libro libro;
     private Date fechaPrestamo;
     private Date fechaDevolucion;
+    private Prestamo prestamoSiguiente;
 
     public Prestamo() {
         this.alumno = null;
         this.libro = null;
         this.fechaPrestamo = null;
         this.fechaDevolucion = null;
+        this.prestamoSiguiente = null;
+    }
+
+    public Prestamo getPrestamoSiguiente() {
+        return prestamoSiguiente;
+    }
+
+    public void setPrestamoSiguiente(Prestamo prestamoSiguiente) {
+        this.prestamoSiguiente = prestamoSiguiente;
     }
 
     public Alumno getAlumno() {

@@ -10,12 +10,22 @@ public class Alumno {
     private String apellido;
     private int matricula;
     private String carrera;
+    private Alumno alumnoSiguiente;
 
     public Alumno() {
         this.nombre = "";
         this.apellido = "";
         this.matricula = 0;
         this.carrera = "";
+        this.alumnoSiguiente = null;
+    }
+
+    public Alumno getAlumnoSiguiente() {
+        return alumnoSiguiente;
+    }
+
+    public void setAlumnoSiguiente(Alumno alumnoSiguiente) {
+        this.alumnoSiguiente = alumnoSiguiente;
     }
 
     public String getNombre() {

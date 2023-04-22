@@ -10,9 +10,9 @@ public class FormMenu extends javax.swing.JFrame {
 
     public String usuario;
 
-    Pila pilaAlumnos = new Pila();
-    Pila pilaLibros = new Pila();
-    Pila pilaPrestamos = new Pila();
+    PilaAlumnos pilaAlumnos = new PilaAlumnos();
+    PilaAlumnos pilaLibros = new PilaAlumnos();
+    PilaAlumnos pilaPrestamos = new PilaAlumnos();
 
     public FormMenu(String usuario) {
         initComponents();

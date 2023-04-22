@@ -10,12 +10,22 @@ public class Libro {
     private String autor;
     private int añoPublicacion;
     private String editorial;
+    private Libro libroSiguiente;
 
     public Libro() {
         this.titulo = "";
         this.autor = "";
         this.añoPublicacion = 0;
         this.editorial = "";
+        this.libroSiguiente = null;
+    }
+
+    public Libro getLibroSiguiente() {
+        return libroSiguiente;
+    }
+
+    public void setLibroSiguiente(Libro libroSiguiente) {
+        this.libroSiguiente = libroSiguiente;
     }
 
     public String getTitulo() {
