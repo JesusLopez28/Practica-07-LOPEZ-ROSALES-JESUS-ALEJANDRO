@@ -4,17 +4,15 @@
  */
 package practica.pkg07.lopez.rosales.jesus.alejandro;
 
-import java.util.Date;
-
 public class Prestamo {
 
-    private Alumno alumno;
-    private Libro libro;
-    private Date fechaPrestamo;
-    private Date fechaDevolucion;
+    private String alumno;
+    private String libro;
+    private String fechaPrestamo;
+    private String fechaDevolucion;
     private Prestamo prestamoSiguiente;
 
-    public Prestamo(Alumno alumno, Libro libro, Date fechaPrestamo, Date fechaDevolucion) {
+    public Prestamo(String alumno, String libro, String fechaPrestamo, String fechaDevolucion) {
         this.alumno = alumno;
         this.libro = libro;
         this.fechaPrestamo = fechaPrestamo;
@@ -22,10 +20,10 @@ public class Prestamo {
     }
 
     public Prestamo() {
-        this.alumno = null;
-        this.libro = null;
-        this.fechaPrestamo = null;
-        this.fechaDevolucion = null;
+        this.alumno = "";
+        this.libro = "";
+        this.fechaPrestamo = "";
+        this.fechaDevolucion = "";
         this.prestamoSiguiente = null;
     }
 
@@ -37,35 +35,35 @@ public class Prestamo {
         this.prestamoSiguiente = prestamoSiguiente;
     }
 
-    public Alumno getAlumno() {
+    public String getAlumno() {
         return alumno;
     }
 
-    public void setAlumno(Alumno alumno) {
+    public void setAlumno(String alumno) {
         this.alumno = alumno;
     }
 
-    public Libro getLibro() {
+    public String getLibro() {
         return libro;
     }
 
-    public void setLibro(Libro libro) {
+    public void setLibro(String libro) {
         this.libro = libro;
     }
 
-    public Date getFechaPrestamo() {
+    public String getFechaPrestamo() {
         return fechaPrestamo;
     }
 
-    public void setFechaPrestamo(Date fechaPrestamo) {
+    public void setFechaPrestamo(String fechaPrestamo) {
         this.fechaPrestamo = fechaPrestamo;
     }
 
-    public Date getFechaDevolucion() {
+    public String getFechaDevolucion() {
         return fechaDevolucion;
     }
 
-    public void setFechaDevolucion(Date fechaDevolucion) {
+    public void setFechaDevolucion(String fechaDevolucion) {
         this.fechaDevolucion = fechaDevolucion;
     }
 

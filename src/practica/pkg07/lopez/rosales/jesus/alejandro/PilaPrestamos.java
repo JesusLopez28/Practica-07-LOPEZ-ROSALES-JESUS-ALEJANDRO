@@ -5,8 +5,6 @@ López Rosales Jesús Alejandro
 
 package practica.pkg07.lopez.rosales.jesus.alejandro;
 
-import java.util.Date;
-
 public class PilaPrestamos {
 
     public Prestamo pila;
@@ -15,7 +13,7 @@ public class PilaPrestamos {
         pila = null;
     }
 
-    public void push(Alumno alumno, Libro libro, Date fechaPrestamo, Date fechaDevolucion) {
+    public void push(String alumno, String libro, String fechaPrestamo, String fechaDevolucion) {
         Prestamo nuevo = new Prestamo(alumno, libro, fechaPrestamo, fechaDevolucion);
         if (pila == null) {
             pila = nuevo;
