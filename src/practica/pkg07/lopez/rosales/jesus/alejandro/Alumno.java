@@ -12,6 +12,13 @@ public class Alumno {
     private String carrera;
     private Alumno alumnoSiguiente;
 
+    public Alumno(String nombre, String apellido, int matricula, String carrera) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.matricula = matricula;
+        this.carrera = carrera;
+    }
+
     public Alumno() {
         this.nombre = "";
         this.apellido = "";

@@ -12,6 +12,13 @@ public class Libro {
     private String editorial;
     private Libro libroSiguiente;
 
+    public Libro(String titulo, String autor, int añoPublicacion, String editorial) {
+        this.titulo = titulo;
+        this.autor = autor;
+        this.añoPublicacion = añoPublicacion;
+        this.editorial = editorial;
+    }
+
     public Libro() {
         this.titulo = "";
         this.autor = "";

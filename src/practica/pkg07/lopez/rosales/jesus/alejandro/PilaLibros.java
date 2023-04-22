@@ -13,8 +13,8 @@ public class PilaLibros {
         pila = null;
     }
 
-    public void push() {
-        Libro nuevo = new Libro();
+    public void push(String titulo, String autor, int añoPublicacion, String editorial) {
+        Libro nuevo = new Libro(titulo, autor, añoPublicacion, editorial);
         if (pila == null) {
             pila = nuevo;
         } else {

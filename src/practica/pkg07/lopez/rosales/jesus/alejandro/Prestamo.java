@@ -14,6 +14,13 @@ public class Prestamo {
     private Date fechaDevolucion;
     private Prestamo prestamoSiguiente;
 
+    public Prestamo(Alumno alumno, Libro libro, Date fechaPrestamo, Date fechaDevolucion) {
+        this.alumno = alumno;
+        this.libro = libro;
+        this.fechaPrestamo = fechaPrestamo;
+        this.fechaDevolucion = fechaDevolucion;
+    }
+
     public Prestamo() {
         this.alumno = null;
         this.libro = null;

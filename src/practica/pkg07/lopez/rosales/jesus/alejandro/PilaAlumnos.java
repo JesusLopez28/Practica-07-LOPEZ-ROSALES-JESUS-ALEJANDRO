@@ -13,8 +13,8 @@ public class PilaAlumnos {
         pila = null;
     }
 
-    public void push() {
-        Alumno nuevo = new Alumno();
+    public void push(String nombre, String apellido, int matricula, String carrera) {
+        Alumno nuevo = new Alumno(nombre, apellido, matricula, carrera);
         if (pila == null) {
             pila = nuevo;
         } else {
