@@ -236,7 +236,7 @@ public class FormRegistrarAlumnos extends javax.swing.JFrame {
         apellido = txtApellido.getText();
         registroStr = txtRegistro.getText();
         carrera = "";
-        if (!registroStr.isEmpty() && registroStr.length() == 8) { // add length() check
+        if (!registroStr.isEmpty() && registroStr.length() == 8) {
             registro = Integer.parseInt(registroStr);
         } else {
             lbMensaje.setVisible(true);
@@ -247,7 +247,7 @@ public class FormRegistrarAlumnos extends javax.swing.JFrame {
         if (comboCarrera.getSelectedItem() != null) {
             carrera = (String) comboCarrera.getSelectedItem();
         }
-        if (!nombre.isEmpty() && !apellido.isEmpty() && !carrera.isEmpty()) { // removed registro != 0 check
+        if (!nombre.isEmpty() && !apellido.isEmpty() && !carrera.isEmpty()) {
             listaAlumnos.push(nombre, apellido, registro, carrera);
             lbMensaje.setVisible(true);
             lbMensaje.setText("Alumno registrado.");
