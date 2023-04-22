@@ -21,6 +21,7 @@ public class FormRegistrarAlumnos extends javax.swing.JFrame {
 
         btnPop = new javax.swing.JButton();
         btnPush = new javax.swing.JButton();
+        btnRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -40,11 +41,22 @@ public class FormRegistrarAlumnos extends javax.swing.JFrame {
             }
         });
 
+        btnRegresar.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        btnRegresar.setText("Regresar");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(162, Short.MAX_VALUE)
+                .addComponent(btnRegresar)
+                .addGap(153, 153, 153))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(61, 61, 61)
@@ -55,7 +67,10 @@ public class FormRegistrarAlumnos extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(210, Short.MAX_VALUE)
+                .addComponent(btnRegresar)
+                .addGap(61, 61, 61))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(135, 135, 135)
@@ -75,8 +90,15 @@ public class FormRegistrarAlumnos extends javax.swing.JFrame {
 
     private void btnPushActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPushActionPerformed
         // TODO add your handling code here:
-        
+        listaAlumnos.push("Jesus", "Lopez", 22110104, "IDS");
     }//GEN-LAST:event_btnPushActionPerformed
+
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+        // TODO add your handling code here:
+        principal.txtUsuario.setText(principal.usuario.toUpperCase());
+        principal.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnRegresarActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -104,5 +126,6 @@ public class FormRegistrarAlumnos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPop;
     private javax.swing.JButton btnPush;
+    private javax.swing.JButton btnRegresar;
     // End of variables declaration//GEN-END:variables
 }

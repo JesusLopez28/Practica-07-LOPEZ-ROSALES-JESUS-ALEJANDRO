@@ -254,6 +254,6 @@ public class FormMenu extends javax.swing.JFrame {
     private javax.swing.JMenu menuAlumnos;
     private javax.swing.JMenu menuLibros;
     private javax.swing.JMenu menuPrestamos;
-    private javax.swing.JLabel txtUsuario;
+    public static javax.swing.JLabel txtUsuario;
     // End of variables declaration//GEN-END:variables
 }
