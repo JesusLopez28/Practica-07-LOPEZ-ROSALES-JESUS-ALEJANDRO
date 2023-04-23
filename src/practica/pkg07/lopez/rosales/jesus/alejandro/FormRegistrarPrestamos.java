@@ -11,12 +11,17 @@ public class FormRegistrarPrestamos extends javax.swing.JFrame {
 
     FormMenu principal;
     PilaPrestamos listaPrestamos;
+    PilaAlumnos listaAlumnos;
+    PilaLibros listaLibros;
 
-    public FormRegistrarPrestamos(FormMenu menu, PilaPrestamos lista) {
+    public FormRegistrarPrestamos(FormMenu menu, PilaPrestamos listaP, PilaAlumnos listaA, PilaLibros listaL) {
         initComponents();
         principal = menu;
-        listaPrestamos = lista;
+        listaPrestamos = listaP;
+        listaAlumnos = listaA;
+        listaLibros = listaL;
         lbMensaje.setVisible(false);
+        this.llenarCombos();
     }
 
     @SuppressWarnings("unchecked")
@@ -25,18 +30,18 @@ public class FormRegistrarPrestamos extends javax.swing.JFrame {
 
         lbMensaje = new javax.swing.JLabel();
         btnLimpiar = new javax.swing.JButton();
-        comboCarrera = new javax.swing.JComboBox();
+        comboAlumno = new javax.swing.JComboBox();
         btnPop = new javax.swing.JButton();
-        lbCarrera = new javax.swing.JLabel();
+        lbPrestamo = new javax.swing.JLabel();
         btnPush = new javax.swing.JButton();
-        lbRegistro = new javax.swing.JLabel();
+        lbDevolucion = new javax.swing.JLabel();
         btnRegresar = new javax.swing.JButton();
-        txtRegistro = new javax.swing.JTextField();
-        txtApellido = new javax.swing.JTextField();
-        lbNombre = new javax.swing.JLabel();
+        txtDevolucion = new javax.swing.JTextField();
+        txtPrestamo = new javax.swing.JTextField();
+        lbAlumno = new javax.swing.JLabel();
         lbTitulo = new javax.swing.JLabel();
-        lbApellido = new javax.swing.JLabel();
-        comboCarrera1 = new javax.swing.JComboBox();
+        lbLibro = new javax.swing.JLabel();
+        comboLibro = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,7 +57,7 @@ public class FormRegistrarPrestamos extends javax.swing.JFrame {
             }
         });
 
-        comboCarrera.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        comboAlumno.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
 
         btnPop.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         btnPop.setText("Pop");
@@ -62,8 +67,8 @@ public class FormRegistrarPrestamos extends javax.swing.JFrame {
             }
         });
 
-        lbCarrera.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        lbCarrera.setText("Fecha Prestamo:");
+        lbPrestamo.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        lbPrestamo.setText("Fecha Prestamo:");
 
         btnPush.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         btnPush.setText("Push");
@@ -73,8 +78,8 @@ public class FormRegistrarPrestamos extends javax.swing.JFrame {
             }
         });
 
-        lbRegistro.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        lbRegistro.setText("Fecha Devolución:");
+        lbDevolucion.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        lbDevolucion.setText("Fecha Devolución:");
 
         btnRegresar.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         btnRegresar.setText("Regresar");
@@ -84,26 +89,26 @@ public class FormRegistrarPrestamos extends javax.swing.JFrame {
             }
         });
 
-        txtRegistro.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        txtRegistro.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtDevolucion.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        txtDevolucion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtRegistroKeyTyped(evt);
+                txtDevolucionKeyTyped(evt);
             }
         });
 
-        txtApellido.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        txtPrestamo.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
 
-        lbNombre.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        lbNombre.setText("Alumno:");
+        lbAlumno.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        lbAlumno.setText("Alumno:");
 
         lbTitulo.setFont(new java.awt.Font("Nirmala UI", 1, 18)); // NOI18N
         lbTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbTitulo.setText("REGISTRO DE PRESTAMOS:");
 
-        lbApellido.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        lbApellido.setText("Libro:");
+        lbLibro.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        lbLibro.setText("Libro:");
 
-        comboCarrera1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        comboLibro.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -124,21 +129,21 @@ public class FormRegistrarPrestamos extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbNombre)
+                                .addComponent(lbAlumno)
                                 .addGap(77, 77, 77)
-                                .addComponent(comboCarrera, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(comboAlumno, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(lbTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lbRegistro)
-                                        .addComponent(lbCarrera)
-                                        .addComponent(lbApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(lbDevolucion)
+                                        .addComponent(lbPrestamo)
+                                        .addComponent(lbLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGap(18, 18, 18)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtRegistro)
-                                        .addComponent(txtApellido)
-                                        .addComponent(comboCarrera1, 0, 250, Short.MAX_VALUE)))))
+                                        .addComponent(txtDevolucion)
+                                        .addComponent(txtPrestamo)
+                                        .addComponent(comboLibro, 0, 250, Short.MAX_VALUE)))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -149,20 +154,20 @@ public class FormRegistrarPrestamos extends javax.swing.JFrame {
                 .addComponent(lbTitulo)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comboCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbNombre))
+                    .addComponent(comboAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbAlumno))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comboCarrera1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbApellido))
+                    .addComponent(comboLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbLibro))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbCarrera))
+                    .addComponent(txtPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbPrestamo))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbRegistro)
-                    .addComponent(txtRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbDevolucion)
+                    .addComponent(txtDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnPush)
@@ -206,11 +211,12 @@ public class FormRegistrarPrestamos extends javax.swing.JFrame {
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         // TODO add your handling code here:
         FormMenu.txtUsuario.setText(principal.usuario.toUpperCase());
+        FormMenu.lbMensaje.setText("");
         principal.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
 
-    private void txtRegistroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRegistroKeyTyped
+    private void txtDevolucionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDevolucionKeyTyped
         // TODO add your handling code here:
         char caracter = evt.getKeyChar();
         lbMensaje.setVisible(false);
@@ -219,19 +225,46 @@ public class FormRegistrarPrestamos extends javax.swing.JFrame {
             this.actionLimpiar();
             lbMensaje.setVisible(true);
         }
-    }//GEN-LAST:event_txtRegistroKeyTyped
+    }//GEN-LAST:event_txtDevolucionKeyTyped
 
     private void actionPush() {
-        
+        String alumno, libro, fechaPrestamo, fechaDevolucion;
+        alumno = (String) comboAlumno.getSelectedItem();
+        libro = (String) comboLibro.getSelectedItem();
+        fechaPrestamo = txtPrestamo.getText();
+        fechaDevolucion = txtDevolucion.getText();
+        if (!alumno.isEmpty() && !libro.isEmpty() && !fechaPrestamo.isEmpty() && !fechaDevolucion.isEmpty()) {
+            listaPrestamos.push(alumno, libro, fechaPrestamo, fechaDevolucion);
+            lbMensaje.setVisible(true);
+            lbMensaje.setText("Prestamo registrado.");
+            lbMensaje.setForeground(Color.BLUE);
+        } else {
+            lbMensaje.setVisible(true);
+            lbMensaje.setText("Por favor ingrese todos los datos.");
+            lbMensaje.setForeground(Color.RED);
+        }
     }
 
     private void actionLimpiar() {
-        txtNombre.setText("");
-        txtApellido.setText("");
-        txtRegistro.setText("");
-        comboCarrera.setSelectedIndex(0);
+        comboAlumno.setSelectedIndex(0);
+        comboLibro.setSelectedIndex(0);
+        txtPrestamo.setText("");
+        txtDevolucion.setText("");
         lbMensaje.setVisible(false);
-        txtNombre.requestFocus();
+        comboAlumno.requestFocus();
+    }
+
+    private void llenarCombos() {
+        Alumno auxA = listaAlumnos.pila;
+        Libro auxL = listaLibros.pila;
+        while (auxA != null) {
+            comboAlumno.addItem(auxA.getNombre() + " " + auxA.getApellido());
+            auxA = auxA.getAlumnoSiguiente();
+        }
+        while (auxL != null) {
+            comboLibro.addItem(auxL.getTitulo());
+            auxL = auxL.getLibroSiguiente();
+        }
     }
 
     public static void main(String args[]) {
@@ -262,15 +295,15 @@ public class FormRegistrarPrestamos extends javax.swing.JFrame {
     private javax.swing.JButton btnPop;
     private javax.swing.JButton btnPush;
     private javax.swing.JButton btnRegresar;
-    private javax.swing.JComboBox comboCarrera;
-    private javax.swing.JComboBox comboCarrera1;
-    private javax.swing.JLabel lbApellido;
-    private javax.swing.JLabel lbCarrera;
+    private javax.swing.JComboBox comboAlumno;
+    private javax.swing.JComboBox comboLibro;
+    private javax.swing.JLabel lbAlumno;
+    private javax.swing.JLabel lbDevolucion;
+    private javax.swing.JLabel lbLibro;
     private javax.swing.JLabel lbMensaje;
-    private javax.swing.JLabel lbNombre;
-    private javax.swing.JLabel lbRegistro;
+    private javax.swing.JLabel lbPrestamo;
     private javax.swing.JLabel lbTitulo;
-    private javax.swing.JTextField txtApellido;
-    private javax.swing.JTextField txtRegistro;
+    private javax.swing.JTextField txtDevolucion;
+    private javax.swing.JTextField txtPrestamo;
     // End of variables declaration//GEN-END:variables
 }

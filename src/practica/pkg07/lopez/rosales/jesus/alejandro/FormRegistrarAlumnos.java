@@ -209,6 +209,7 @@ public class FormRegistrarAlumnos extends javax.swing.JFrame {
         // TODO add your handling code here:
         FormMenu.txtUsuario.setText(principal.usuario.toUpperCase());
         principal.setVisible(true);
+        FormMenu.lbMensaje.setText("");
         this.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
 

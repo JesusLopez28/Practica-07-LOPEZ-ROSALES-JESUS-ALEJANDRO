@@ -141,32 +141,29 @@ public class FormMenu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lbUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lbMensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lbMensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lbUsuario)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtUsuario)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 271, Short.MAX_VALUE)
+                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lbUsuario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtUsuario)
-                .addGap(18, 18, 18)
-                .addComponent(btnSalir)
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbUsuario)
+                    .addComponent(txtUsuario)
+                    .addComponent(btnSalir))
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(lbMensaje)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -225,10 +222,15 @@ public class FormMenu extends javax.swing.JFrame {
 
     private void itemRegistrarPrestamosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRegistrarPrestamosActionPerformed
         // TODO add your handling code here:
-        FormRegistrarPrestamos registrarPrestamos = new FormRegistrarPrestamos(this, pilaPrestamos);
-        registrarPrestamos.setVisible(true);
-        registrarPrestamos.setLocationRelativeTo(null);
-        this.setVisible(false);
+        if (pilaAlumnos.pila == null || pilaLibros.pila == null) {
+            lbMensaje.setVisible(true);
+            lbMensaje.setText("Para poder hacer prestamos debe de haber libros y alumnos registrados");
+        } else {
+            FormRegistrarPrestamos registrarPrestamos = new FormRegistrarPrestamos(this, pilaPrestamos, pilaAlumnos, pilaLibros);
+            registrarPrestamos.setVisible(true);
+            registrarPrestamos.setLocationRelativeTo(null);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_itemRegistrarPrestamosActionPerformed
 
     private void itemMostraPrestamosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMostraPrestamosActionPerformed
@@ -276,7 +278,7 @@ public class FormMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem itemRegistrarLibros;
     private javax.swing.JMenuItem itemRegistrarPrestamos;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JLabel lbMensaje;
+    public static javax.swing.JLabel lbMensaje;
     private javax.swing.JLabel lbUsuario;
     private javax.swing.JMenu menuAlumnos;
     private javax.swing.JMenu menuLibros;

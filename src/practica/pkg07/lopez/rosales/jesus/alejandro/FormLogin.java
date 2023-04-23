@@ -5,6 +5,7 @@
 package practica.pkg07.lopez.rosales.jesus.alejandro;
 
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 
 public class FormLogin extends javax.swing.JFrame {
 
@@ -52,6 +53,11 @@ public class FormLogin extends javax.swing.JFrame {
         txtUsuario.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
 
         txtContraseña.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        txtContraseña.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtContraseñaKeyTyped(evt);
+            }
+        });
 
         btnIngresar.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         btnIngresar.setText("Ingresar");
@@ -134,6 +140,20 @@ public class FormLogin extends javax.swing.JFrame {
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         // TODO add your handling code here:
+        this.login();
+    }//GEN-LAST:event_btnIngresarActionPerformed
+
+    private void txtContraseñaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraseñaKeyTyped
+        // TODO add your handling code here:
+        char caracter = evt.getKeyChar();
+        lbMensaje.setVisible(false);
+        if (caracter == KeyEvent.VK_ENTER) {
+            this.login();
+            lbMensaje.setVisible(true);
+        }
+    }//GEN-LAST:event_txtContraseñaKeyTyped
+
+    private void login() {
         if (!txtUsuario.getText().isEmpty() || !txtContraseña.getText().isEmpty()) {
             boolean usuarioValidado = false;
             for (int i = 0; i < contador; i++) {
@@ -161,7 +181,7 @@ public class FormLogin extends javax.swing.JFrame {
             lbMensaje.setText("Alguno de los campos está vacío.");
             lbMensaje.setForeground(Color.RED);
         }
-    }//GEN-LAST:event_btnIngresarActionPerformed
+    }
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
